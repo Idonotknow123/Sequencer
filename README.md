@@ -4,7 +4,7 @@
 
 **XYZ Arithmetic Machine** is a synchronous sequential machine implemented in **Logisim**. The system computes the following expression:
 
-[\boxed{f(x) = 1 - 3x + y + z \cdot t}]
+[\boxed{1 - 3x + y + z \cdot t}]
 
 The input data are provided **sequentially** in the following order:
 
