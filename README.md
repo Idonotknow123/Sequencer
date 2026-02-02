@@ -4,7 +4,9 @@
 
 **XYZ Arithmetic Machine** is a synchronous sequential machine implemented in **Logisim**. The system computes the following expression:
 
-[\boxed{1 - 3x + y + z \cdot t}]
+```
+f(x) = 1 - 3x + y + z
+```
 
 The input data are provided **sequentially** in the following order:
 
@@ -23,6 +25,7 @@ The project was implemented in two variants:
 
 1. **Logic-gates-based implementation** (FSM + datapath)
 2. **ROM-controlled implementation** (microprogrammed control unit)
+3. **Counter**
 
 The main goal of the project was to practice:
 
@@ -38,7 +41,7 @@ The main goal of the project was to practice:
 
 The machine operates as follows:
 
-1. Waits for **ST = 1** and **PUSH OF A BUTTON**to begin execution
+1. Waits for **ST = 1** and **PUSH OF A BUTTON** to begin execution
 2. Accepts input values (**x, y, z, t**) one by one when **NR = 1** and **RDY = 1**
 3. Stores each value in internal registers
 4. Performs arithmetic operations step by step
@@ -48,6 +51,13 @@ The machine operates as follows:
 ---
 
 ## Interface
+=======
+## Counter Overview:
+**ab:**
+**00** - counter mod 4 up
+**01** - counter mod 5 up
+**10** - undefined behaviour (purposefully)
+**11** - counter mid 7 down
 
 ### Inputs
 
@@ -61,25 +71,23 @@ The machine operates as follows:
 
 ### Outputs / Indicators
 
-| Signal | Description                                     |
-| ------ | ----------------------------------------------- |
-| `RDY`  | Ready for Input – machine can accept next value |
-| `RR`   | Result Ready – computation finished             |
-| `OUT`  | Computation result                              |
+| Signal  | Description                                     |
+| ------- | ----------------------------------------------- |
+| `RDY`   | Ready for Input – machine can accept next value |
+| `RR`    | Result Ready – computation finished             |
+| `OUTPUT`| Computation result                              |
 
 ---
 
 ## High-Level Operation
 
-1. **Reset** initializes the machine to the idle state
-2. **ST** triggers the computation sequence
-3. Input values are latched on clock edges when **NR = 1** and **RDY = 1**
-4. Arithmetic operations (addition, subtraction, multiplication) are executed sequentially
-5. The control unit:
-
+1. **ST** initializes the machine to the idle state
+2. **NR** sygnalises redyness for value input
+3. Arithmetic operations (addition, subtraction, multiplication) are executed sequentially
+4. The control unit:
    * in version 1: implemented as an FSM using combinational logic
    * in version 2: implemented as a microprogram stored in ROM
-6. When computation is complete, **RR = 1** is asserted and the result is stable at `OUT`
+5. When computation is complete, **RR = 1** is asserted and the result is stable at `OUTPUT`
 
 ---
 
@@ -120,7 +128,7 @@ This approach simplifies the control logic and treats the ROM as a **microprogra
 
    * **RDY LED** – readiness for next input
    * **RR LED** – result availability
-   * `OUT` – final computation result
+   * `OUTPUT` – final computation result
 
 ---
 
@@ -129,8 +137,6 @@ This approach simplifies the control logic and treats the ROM as a **microprogra
 Project developed jointly as part of digital logic / computer architecture coursework with Kacper Gramaszek (STUD).
 
 ---
-
-## License
 
 This project is provided for educational purposes.
 
