@@ -51,13 +51,15 @@ The machine operates as follows:
 ---
 
 ## Interface
-=======
+
 ## Counter Overview:
-**ab:**
-**00** - counter mod 4 up
-**01** - counter mod 5 up
-**10** - undefined behaviour (purposefully)
-**11** - counter mid 7 down
+
+| **ab** | operation                          |
+|--------|------------------------------------|
+| **00** | counter mod 4 up                   |
+| **01** | counter mod 5 up                   |
+| **10** | undefined behaviour (purposefully) |
+| **11** | counter mid 7 down                 |
 
 ### Inputs
 
