@@ -5,7 +5,7 @@
 **XYZ Arithmetic Machine** is a synchronous sequential machine implemented in **Logisim**. The system computes the following expression:
 
 ```
-f(x) = 1 - 3x + y + z
+f(x) = 1 - 3x + y + z*t
 ```
 
 The input data are provided **sequentially** in the following order:
@@ -136,7 +136,7 @@ This approach simplifies the control logic and treats the ROM as a **microprogra
 
 ## Authors
 
-Project developed jointly as part of digital logic / computer architecture coursework with Kacper Gramaszek (STUD).
+Project developed jointly as part of digital logic / computer architecture coursework with Kacper G (STUD).
 
 ---
 
